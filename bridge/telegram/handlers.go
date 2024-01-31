@@ -136,6 +136,12 @@ func (b *Btelegram) handleUsername(rmsg *config.Message, message *tgbotapi.Messa
 		if b.GetBool("UseFullName") {
 			if message.From.FirstName != "" && message.From.LastName != "" {
 				rmsg.Username = message.From.FirstName + " " + message.From.LastName
+			}  
+			if message.From.FirstName != "" && message.From.LastName = "" {
+				rmsg.Username = message.From.FirstName
+			} 
+			if message.From.FirstName = "" && message.From.LastName != "" {
+				rmsg.Username = message.From.LastName
 			}
 		}
 		if rmsg.Username == "" {
